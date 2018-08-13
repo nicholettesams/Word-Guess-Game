@@ -15,7 +15,7 @@ var outputData = function(){
 //Input: accepts a word as a string
 //Output: returns a string of underscores and spaces representing the word 
 var printBlanks = function(word){
-    var len = word.lenth;
+    var len = word.length;
     var blankWord = "";
     //Build a string of blanks for every letter in the word
     //Leave a blank space for spaces between words
@@ -31,66 +31,66 @@ var printBlanks = function(word){
         //put a space between all the letters
         blankWord = blankWord + " ";
     }
+}
 
-    //Input: accepts an array
-    //Output: returns the text of a random element in the array
-    var getRandomWord = function(arr){
-        return arr[Math.floor(Math.random() * arr.lenth)];
+//Input: accepts an array
+//Output: returns the text of a random element in the array
+var getRandomWord = function(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+outputData();
+
+/*****************************/
+/*     Game sequence         */
+/*****************************/
+//do while there are underscores left or until numGuesses = 0
+
+//listen for onkeyup event
+document.onkeyup = function(event) {
+    //user makes a guess
+    guess = event.key.toLowerCase();
+    console.log(guess)
+
+    //setup the game if first move
+    if (numGuesses = 12){
+        //Computer gets a random word
+        randomWord = getRandomWord(wordsArr);
+        outputData();
+        //Display random word as blanks to the screen
+        randomWordBlank = printBlanks(randomWord);
+        var gameText = document.getElementById("game-text");
+        gameText.textContent = randomWordBlank;
+        outputData();
+    } 
+
+    //check to see if letter has already been guessed
+    if (guessedLetters.includes(guess)){
+        //end turn, don't decrease guesses or update anything
+        return; 
     }
 
-    outputData();
+    //update the page with the letter guessed and the array
+    guessedLetters.push(guess);
+    var lettersGuessed = document.getElementById("letters-guessed");
+    lettersGuessed.textContent = lettersGuessed.textContent + guessedLetters;
+    
 
-    /*****************************/
-    /*     Game sequence         */
-    /*****************************/
-    //do while there are underscores left or until numGuesses = 0
-
-    //listen for onkeyup event
-    document.onkeyup = function(event) {
-        //user makes a guess
-        guess = event.key.toLowerCase();
- 
-        //setup the game if first move
-        if (numGuesses = 12){
-            //Computer gets a random word
-            randomWord = getRandomWord();
-            outputData();
-            //Display random word as blanks to the screen
-            randomWordBlank = printBlanks();
-            var gameText = document.getElementById("game-text");
-            gameText.textContent = randomWordBlank;
-            outputData();
-        } 
- 
-        //check to see if letter has already been guessed
-        if (guessedletters.contains(guess)){
-            //end turn, don't decrease guesses or update anything
-            return; 
-        }
-
-        //update the page with the letter guessed and the array
-        guessedLetters.push(guess);
-        var lettersGuessed = document.getElementById("letters-guessed");
-        lettersGuessed.textContent = lettersGuessed.textContent + guessedLetters;
-        
-
-        //check to see if the guessed letter exists in the random word
-        //if it does, fill the letter(s) in instead of the underscore    
-        var charIndex = randomWord.indexof(guess);
-        if (charIndex === -1) {
-            //letter is not in the word
-        } else{
-            //letter is in the word
-            //need to update randomWordBlank and output to page
-
-        }
-
-        //decrease the number of guesses left and update page
-        numGuesses--;
-        var guessesLeft = document.getElementById("guesses-left");
-        guessesLeft.textContent = numGuesses;
-
+    //check to see if the guessed letter exists in the random word
+    //if it does, fill the letter(s) in instead of the underscore    
+    var charIndex = randomWord.indexOf(guess);
+    if (charIndex === -1) {
+        //letter is not in the word
+    } else{
+        //letter is in the word
+        //need to update randomWordBlank and output to page
 
     }
+
+    //decrease the number of guesses left and update page
+    numGuesses--;
+    var guessesLeft = document.getElementById("guesses-left");
+    guessesLeft.textContent = numGuesses;
+
 
 }
