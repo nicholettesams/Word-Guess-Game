@@ -4,19 +4,21 @@ var guessedLetters = [];
 var guess = "";
 var randomWord = "";
 var randomWordBlank = "";
+var wins = 0;
+var losses = 0;
 
 var outputData = function(){
-    console.log("Guesses:" + numGuesses)
-    console.log("Guess:" + guess)
-    console.log("Word:" + randomWord)
-    console.log("WordBlank:" + randomWordBlank)
+    console.log("Guesses:" + numGuesses);
+    console.log("Guess:" + guess);
+    console.log("Word:" + randomWord);
+    console.log("WordBlank:" + randomWordBlank);
 }
 
 //Input: accepts a word as a string
 //Output: returns a string of underscores and spaces representing the word 
 var printBlanks = function(word){
     var len = word.length;
-    console.log("len: " + len)
+    console.log("len: " + len);
     var blankWord = "";
     //Build a string of blanks for every letter in the word
     //Leave a blank space for spaces between words
@@ -27,7 +29,7 @@ var printBlanks = function(word){
             blankWord = blankWord + "_";
         } else {
             blankWord = blankWord + " ";
-        };
+        }
 
         //put a space between all the letters
         blankWord = blankWord + " ";
@@ -53,16 +55,15 @@ outputData();
 document.onkeyup = function(event) {
     //user makes a guess
     guess = event.key.toLowerCase();
-    console.log(guess)
+    console.log(guess);
 
     //setup the game if first move
-    if (numGuesses === 12){
+    if (randomWord === ""){
         //Computer gets a random word
         randomWord = getRandomWord(wordsArr);
    
         //Display random word as blanks to the screen
         randomWordBlank = printBlanks(randomWord);
-        console.log("RandomWordBlank: " + randomWordBlank)
         var gameText = document.getElementById("game-text");
         gameText.textContent = randomWordBlank;
         outputData();
@@ -84,17 +85,51 @@ document.onkeyup = function(event) {
     //if it does, fill the letter(s) in instead of the underscore    
     var charIndex = randomWord.indexOf(guess);
     if (charIndex === -1) {
-        //letter is not in the word
+        console.log("letter is not in the word");
+        //decrease the number of guesses left and update page
+        numGuesses--;
+        var guessesLeft = document.getElementById("guesses-left");
+        guessesLeft.textContent = numGuesses;
     } else{
-        //letter is in the word
+        console.log("letter is in the word");
         //need to update randomWordBlank and output to page
-
+        for (var i = 0; i < randomWord.length; i++) {
+            if (randomWord[i] === guess) {
+            randomWordBlank[i] = guess;
+            } 
+        }
+        console.log("New randomWordBlank:" + randomWordBlank)
+        gameText = document.getElementById("game-text");
+        gameText.textContent = randomWordBlank;
     }
 
-    //decrease the number of guesses left and update page
-    numGuesses--;
-    var guessesLeft = document.getElementById("guesses-left");
-    guessesLeft.textContent = numGuesses;
+    //Check to see if user has won.
+    //Update win score
+    //if no more underscores in the blank word
+    if (randomWordBlank.indexOf("_") === -1){
+        alert("You won!");
+        wins++;
 
+        var numWins = document.getElementById("num-wins");
+        numWins.textContent = wins;
+
+        //Refresh the page to reset the game
+        location.reload();
+    }
+
+    //Check to see if user has lost
+    //Update Loss score
+    if (numGuesses === 0){
+        alert("You lost!");
+        losses++;
+
+        var numLosses = document.getElementById("num-losses");
+        numLosses.textContent = wins;
+
+        //Refresh the page to reset the game
+        location.reload();
+    }
+
+    
 
 }
