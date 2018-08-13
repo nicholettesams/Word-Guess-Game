@@ -23,16 +23,11 @@ var printBlanks = function(word){
     //Build a string of blanks for every letter in the word
     //Leave a blank space for spaces between words
     for (var i = 0; i < len; i++){
-        //May use regular expression
-        //blankWord = word.replace(/\s/g, "_");
-        if (word.substring(i, 1) !== " "){
+        if (word.charAt(i) !== " "){
             blankWord = blankWord + "_";
         } else {
             blankWord = blankWord + " ";
         }
-
-        //put a space between all the letters
-        blankWord = blankWord + " ";
     }
 
     return blankWord;
@@ -42,6 +37,13 @@ var printBlanks = function(word){
 //Output: returns the text of a random element in the array
 var getRandomWord = function(arr){
     return arr[Math.floor(Math.random() * arr.length)];
+}
+
+//Input: string, index of char you want to replace, char is is being replaced with
+//Output: new string with replaced char
+function setCharAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + chr + str.substr(index+1);
 }
 
 outputData();
@@ -83,8 +85,7 @@ document.onkeyup = function(event) {
 
     //check to see if the guessed letter exists in the random word
     //if it does, fill the letter(s) in instead of the underscore    
-    var charIndex = randomWord.indexOf(guess);
-    if (charIndex === -1) {
+    if (randomWord.indexOf(guess) === -1) {
         console.log("letter is not in the word");
         //decrease the number of guesses left and update page
         numGuesses--;
@@ -94,8 +95,8 @@ document.onkeyup = function(event) {
         console.log("letter is in the word");
         //need to update randomWordBlank and output to page
         for (var i = 0; i < randomWord.length; i++) {
-            if (randomWord[i] === guess) {
-            randomWordBlank[i] = guess;
+            if (randomWord.charAt(i) === guess) {
+                randomWordBlank = setCharAt(randomWordBlank, i, guess)
             } 
         }
         console.log("New randomWordBlank:" + randomWordBlank)
