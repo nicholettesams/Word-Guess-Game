@@ -53,10 +53,10 @@ document.onkeyup = function(event) {
     console.log(guess)
 
     //setup the game if first move
-    if (numGuesses = 12){
+    if (numGuesses === 12){
         //Computer gets a random word
         randomWord = getRandomWord(wordsArr);
-        outputData();
+   
         //Display random word as blanks to the screen
         randomWordBlank = printBlanks(randomWord);
         var gameText = document.getElementById("game-text");
@@ -73,7 +73,7 @@ document.onkeyup = function(event) {
     //update the page with the letter guessed and the array
     guessedLetters.push(guess);
     var lettersGuessed = document.getElementById("letters-guessed");
-    lettersGuessed.textContent = lettersGuessed.textContent + guessedLetters;
+    lettersGuessed.textContent = lettersGuessed.textContent + guess;
     
 
     //check to see if the guessed letter exists in the random word
