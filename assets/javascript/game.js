@@ -16,21 +16,24 @@ var outputData = function(){
 //Output: returns a string of underscores and spaces representing the word 
 var printBlanks = function(word){
     var len = word.length;
+    console.log("len: " + len)
     var blankWord = "";
     //Build a string of blanks for every letter in the word
     //Leave a blank space for spaces between words
     for (var i = 0; i < len; i++){
         //May use regular expression
         //blankWord = word.replace(/\s/g, "_");
-
         if (word.substring(i, 1) !== " "){
             blankWord = blankWord + "_";
         } else {
             blankWord = blankWord + " ";
         };
+
         //put a space between all the letters
         blankWord = blankWord + " ";
     }
+
+    return blankWord;
 }
 
 //Input: accepts an array
@@ -59,6 +62,7 @@ document.onkeyup = function(event) {
    
         //Display random word as blanks to the screen
         randomWordBlank = printBlanks(randomWord);
+        console.log("RandomWordBlank: " + randomWordBlank)
         var gameText = document.getElementById("game-text");
         gameText.textContent = randomWordBlank;
         outputData();
