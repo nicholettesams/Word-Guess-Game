@@ -1,0 +1,25 @@
+h1, h2 {
+
+    font-family: 'Permanent Marker', cursive;
+}
+
+h3 {
+    font-family: 'Cousine', monospace;
+}
+
+.container{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+img{
+    height: 400px;
+    width: auto;
+    float: left;
+}
+
+.instructions{
+    float: left;
+    margin-left: 50px;
+}

@@ -5,22 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Reset all styles-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cousine:400,700i" rel="stylesheet">
+    <!--Style Sheets-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <!--JavaScript-->
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
 
-    <h1>HANGMAN - 90s Artists Edition</h1>
-    <h2>Press any key to get started</h2>
+    <div class = "container">
+        <img src="assets/images/90sAlbumCovers.jpg">
 
-    <h3><span id="game-text"><strong>........</strong></span></h3>
+        <div class = "instructions">
+            <h1>HANGMAN - 90s Artists Edition</h1>
+            <h2>Press any key to get started</h2>
 
+            <h3><span id="game-text"><strong>........</strong></span></h3>
 
-    <h3>Wins:</h3><span id="num-wins"><strong>0</strong></span></h3>
-    <h3>Losses:</h3><span id="num-losses"><strong>0</strong></span></h3>
-    <h3>Number of guesses remaining:</h3><span id="guesses-left"><strong>12</strong></span></h3>
-    <h3>Letters already guessed:</h3><span id="letters-guessed"><strong></strong></span></h3>
-    
+            <h3>Wins:<span id="num-wins"><strong>0</strong></span></h3>
+            <h3>Losses:<span id="num-losses"><strong>0</strong></span></h3>
+            <h3>Number of guesses remaining:<span id="guesses-left"><strong>12</strong></span></h3>
+            <h3>Letters already guessed:<span id="letters-guessed"><strong></strong></span></h3>
+        </div>
+    </div>
 </body>
 </html>
