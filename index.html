@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Reset all styles-->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cousine:400,700i" rel="stylesheet">
@@ -16,16 +16,30 @@
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="https://nicholettesams.github.io/Responsive-Portfolio/index.html">Nicholette Sams</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="https://nicholettesams.github.io/Responsive-Portfolio/index.html">About<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="https://nicholettesams.github.io/Responsive-Portfolio/portfolio.html">Portfolio</a>
+            <a class="nav-item nav-link" href="https://nicholettesams.github.io/Responsive-Portfolio/contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
 
     <div class = "container">
-        <img src="assets/images/90sAlbumCovers.jpg">
-
-        <div class = "instructions">
-            <h1>HANGMAN - 90s Artists Edition</h1>
-            <h2>Press any key to get started</h2>
-
-            <h3><span id="game-text"><strong>........</strong></span></h3>
-
+        <div class = "jumbotron">
+            <img src="assets/images/90sAlbumCovers.jpg">
+            <h1>Word Guess - 90s Artists Edition</h1>
+        </div>
+        <div>
+            <h2><span id="game-text"><strong>........</strong></span></h2>
+            <br>
+            <h3>Instructions: Press any key to get started</h3>
             <h3>Wins:<span id="num-wins"><strong>0</strong></span></h3>
             <h3>Losses:<span id="num-losses"><strong>0</strong></span></h3>
             <h3>Number of guesses remaining:<span id="guesses-left"><strong>12</strong></span></h3>
