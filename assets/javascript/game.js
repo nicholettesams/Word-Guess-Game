@@ -2,7 +2,7 @@
 /*     Global Variables      */
 /*****************************/
 
-var wordsArr = ["britney spears", "christina agulera", "envogue", "janet jackson", "pearl jam", "alanis morissette", "matchbox 20", "blind melon", "third eye blind", "the offspring", "foo fighters", "nine inch nails", "stone temple pilots", "vanilla ice", "savage garden", "the verve", "nirvana", "radiohead", "mariah carey", "puff daddy", "oasis", "outkast", "green day", "tlc", "boys ii men", "backstreet boys", "nsync", "ace of base", "weezer", "snoop dogg", "dr dre", "ice cube", "beastie boys", "run dmc", "salt n pepa", "naughty by nature", "digital underground"]
+var wordsArr = ["bare naked ladies", "fugees", "meredith brooks", "jewel", "kris kross", "chumbawamba", "soul asylum", "houe of pain","britney spears", "christina agulera", "envogue", "janet jackson", "pearl jam", "alanis morissette", "matchbox 20", "blind melon", "third eye blind", "the offspring", "foo fighters", "nine inch nails", "stone temple pilots", "vanilla ice", "savage garden", "the verve", "nirvana", "radiohead", "mariah carey", "puff daddy", "oasis", "outkast", "green day", "tlc", "boys ii men", "backstreet boys", "nsync", "ace of base", "weezer", "snoop dogg", "dr dre", "ice cube", "beastie boys", "run dmc", "salt n pepa", "naughty by nature", "digital underground"]
 var numGuesses = 12; //start with a default of 12 guesses
 var guessedLetters = [];
 var guess = "";
@@ -84,6 +84,11 @@ var updateHTML = function(tag, value, append, addSpaces){
     element.textContent = tempValue;
 }
 
+var playSound = function(url) {
+    var a = new Audio(url);
+    a.play();
+}
+
 outputData();
 
 /*****************************/
@@ -154,6 +159,10 @@ document.onkeyup = function(event) {
 
         updateHTML("num-wins", wins, false, false);
 
+        //Bonus: play audo when someone wins
+        //Today was a good day
+        //playSound("https://www.youtube.com/watch?v=xd1RGk5xaQk");
+
         //reset the game
         resetGame();
     }
@@ -165,6 +174,10 @@ document.onkeyup = function(event) {
         losses++;
 
         updateHTML("num-losses", losses, false, false);
+
+        //Bonus: play audio when someone loses
+        //Bye, Bye, By
+        //playSound("https://www.youtube.com/watch?v=Cr9upC5e55s");
 
         //reset the game
         resetGame();
