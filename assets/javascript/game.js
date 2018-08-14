@@ -84,21 +84,6 @@ var updateHTML = function(tag, value, append, addSpaces){
     element.textContent = tempValue;
 }
 
-var playSound = function(url) {
-    var a = new Audio(url);
-
-    var playPromise = a.play();
-
-    //error handling
-    if (playPromise !== undefined) {
-        playPromise.then(function () {
-            console.log('Playing....');
-        }).catch(function (error) {
-            console.log('Failed to play....' + error);
-        });
-    }
-}
-
 outputData();
 
 /*****************************/
@@ -172,6 +157,7 @@ document.onkeyup = function(event) {
         //Bonus: play audo when someone wins
         //Today was a good day
         //playSound("https://www.youtube.com/watch?v=xd1RGk5xaQk");
+        document.getElementById('winAudio').play();
 
         //reset the game
         resetGame();
@@ -188,6 +174,7 @@ document.onkeyup = function(event) {
         //Bonus: play audio when someone loses
         //Bye, Bye, By
         //playSound("https://www.youtube.com/watch?v=Cr9upC5e55s");
+        document.getElementById('loseAudio').play();
 
         //reset the game
         resetGame();
