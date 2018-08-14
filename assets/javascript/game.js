@@ -86,7 +86,17 @@ var updateHTML = function(tag, value, append, addSpaces){
 
 var playSound = function(url) {
     var a = new Audio(url);
-    a.play();
+
+    var playPromise = a.play();
+
+    //error handling
+    if (playPromise !== undefined) {
+        playPromise.then(function () {
+            console.log('Playing....');
+        }).catch(function (error) {
+            console.log('Failed to play....' + error);
+        });
+    }
 }
 
 outputData();
