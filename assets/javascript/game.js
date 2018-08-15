@@ -149,9 +149,7 @@ document.onkeyup = function(event) {
     //Update win score
     //if no more underscores in the blank word
     if (randomWordBlank.indexOf("_") === -1){
-        alert("You won! \nThe correct word is '" + randomWord + "'.");
         wins++;
-
         updateHTML("num-wins", wins, false, false);
 
         //Bonus: play audo when someone wins
@@ -159,6 +157,8 @@ document.onkeyup = function(event) {
         //playSound("https://www.youtube.com/watch?v=xd1RGk5xaQk");
         document.getElementById('winAudio').play();
 
+        alert("You won! \nThe correct word is '" + randomWord + "'.");
+        
         //reset the game
         resetGame();
     }
@@ -166,15 +166,15 @@ document.onkeyup = function(event) {
     //Check to see if user has lost
     //Update Loss score
     if (numGuesses === 0){
-        alert("You lost!  \nThe correct word is '" + randomWord + "'.");
         losses++;
-
         updateHTML("num-losses", losses, false, false);
 
         //Bonus: play audio when someone loses
         //Bye, Bye, By
         //playSound("https://www.youtube.com/watch?v=Cr9upC5e55s");
         document.getElementById('loseAudio').play();
+
+        alert("You lost!  \nThe correct word is '" + randomWord + "'.");
 
         //reset the game
         resetGame();
