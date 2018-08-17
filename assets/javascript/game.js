@@ -110,6 +110,7 @@ document.onkeyup = function(event) {
     } 
 
     //check to see if letter has already been guessed
+    //I have found that "includes" doesn't work in Edge.  And I don't care to fix that.
     if (guessedLetters.includes(guess)){
         //end turn, don't decrease guesses or update anything
         console.log("letter has already been guessed");
