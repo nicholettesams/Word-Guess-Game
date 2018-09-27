@@ -1,5 +1,14 @@
 # Word-Guess-Game
 
+# Assignment
+Create a Word Guess game that will run in the browser, and feature dynamically updated HTML and CSS powered by JavaScript.
+
+#Solution
+This solution was built before we learned about many useful array methods that could have made some of this code more efficient.  This was also prior to jQuery so only javaScript was able to be used to manipulate the DOM.  I built my own function to help with that and to cut down on repetitive code.  Most of the logic is contained in a keyUp event. Audio tags are used to play a sound when the player wins or loses the game.
+
+#Technology
+HTML, CSS, JavaScript, Bootstrap, Media Queries
+
 ## Overview
 This game is similar to Hangman although without a physical hangman being drawn.  The user guesses letters until all the letters in the word are guessed or until the user runs out of wrong guesses.
 
