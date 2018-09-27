@@ -17,3 +17,19 @@ img{
 .jumbotron{
     text-align: center;
 }
+
+#img-small{
+    display: none;
+ }
+ 
+ @media only screen and (max-width: 500px){ 
+    #img-large{
+        display: none;
+    }
+ 
+    #img-small{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+ }
