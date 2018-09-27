@@ -39,7 +39,7 @@ var outputData = function(){
 //Output: returns a string of underscores and spaces representing the word 
 var printBlanks = function(word){
     var len = word.length;
-    console.log("len: " + len);
+ 
     var blankWord = "";
     //Build a string of blanks for every letter in the word
     //Leave a blank space for spaces between words
@@ -80,6 +80,11 @@ var resetGame = function(){
 
 }
 
+//Inputs: 
+//  tag         the HTML tag you want to update
+//  value       the value you want to appear as the textContent of the HTML tag
+//  append      true if you want your value appended to existing textContent, false if you want to override
+//  addSpaces   true if you want to add spaces before displaying (helps the display of the blank word)
 var updateHTML = function(tag, value, append, addSpaces){
     var element = document.getElementById(tag);
     var tempValue = "";
@@ -103,12 +108,10 @@ outputData();
 /*     Game sequence         */
 /*****************************/
 //do while there are underscores left or until numGuesses = 0
-
 //listen for onkeyup event
 document.onkeyup = function(event) {
     //user makes a guess
     guess = event.key.toLowerCase();
-    console.log(guess);
 
     //setup the game if first move
     if (randomWord === ""){
@@ -123,7 +126,7 @@ document.onkeyup = function(event) {
     } 
 
     //check to see if letter has already been guessed
-    //I have found that "includes" doesn't work in Edge.  And I don't care to fix that.
+    //I have found that "includes" doesn't work in Edge. 
     if (guessedLetters.includes(guess)){
         //end turn, don't decrease guesses or update anything
         console.log("letter has already been guessed");
@@ -144,12 +147,10 @@ document.onkeyup = function(event) {
     //check to see if the guessed letter exists in the random word
     //if it does, fill the letter(s) in instead of the underscore    
     if (randomWord.indexOf(guess) === -1) {
-        console.log("letter is not in the word");
         //decrease the number of guesses left and update page
         numGuesses--;
         updateHTML("guesses-left", numGuesses, false, false);
     } else{
-        console.log("letter is in the word");
         //need to update randomWordBlank and output to page
         for (var i = 0; i < randomWord.length; i++) {
             if (randomWord.charAt(i) === guess) {
@@ -193,7 +194,5 @@ document.onkeyup = function(event) {
         //reset the game
         resetGame();
     }
-
     
-
 }
