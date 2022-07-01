@@ -5,7 +5,7 @@
 var wordsArr = ["goo goo dolls", "bon jovi", "hootie and the blowfish", 
                 "barenaked ladies", "fugees", "meredith brooks", 
                 "jewel", "kris kross", "chumbawamba", "soul asylum", 
-                "houe of pain","britney spears", "christina agulera", 
+                "house of pain","britney spears", "christina agulera", 
                 "envogue", "janet jackson", "pearl jam", "alanis morissette", 
                 "matchbox 20", "blind melon", "third eye blind", 
                 "the offspring", "foo fighters", "nine inch nails", 
@@ -91,7 +91,11 @@ var updateHTML = function(tag, value, append, addSpaces){
 
     if (addSpaces){
         for(var k=0; k < value.length; k++){
-            tempValue = tempValue + value[k] + " ";
+            if (value[k] == " "){
+                tempValue = tempValue + "   ";    //add extra spaces in between words
+            } else {
+                tempValue = tempValue + value[k] + " ";
+            }
         }
     } else if (append){
         tempValue = element.textContent + value;
@@ -120,6 +124,7 @@ document.onkeyup = function(event) {
    
         //Display random word as blanks to the screen
         randomWordBlank = printBlanks(randomWord);
+        console.log("randomWordBlank: " + randomWordBlank)
 
         updateHTML("game-text", randomWordBlank, false, true);
         outputData();
@@ -133,8 +138,8 @@ document.onkeyup = function(event) {
         return; 
     } 
     //check to see if letter or number
-    var myRegEx  = /[^a-z\d]/;
-    var isValid = !(myRegEx.test(guess));
+    var myRegEx  = /^[a-zA-Z\d]$/;
+    var isValid = (myRegEx.test(guess));
     if (!isValid) {
         console.log("not a valid key");
         return;
